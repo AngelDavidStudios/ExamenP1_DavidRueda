@@ -35,6 +35,7 @@ public class VMHome
         {
             await Application.Current.MainPage.DisplayAlert("Confirmado", "Tu recarga ha sido confirmada.", "OK");
             await SaveToFile(NumeroCelular, RecargaModel.Recarga);
+            await Application.Current.MainPage.DisplayAlert("Agradecimiento", "Gracias por confiarnos en nuestros servicios", "OK");
 
         }
         else
