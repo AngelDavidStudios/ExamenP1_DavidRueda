@@ -5,45 +5,101 @@
              x:Class="ExamenP1_DavidRueda.MVVM.VIews.HomeView"
              Title="David Rueda - Recarga">
     
-    <StackLayout Margin="15"
-                 HorizontalOptions="Start"
-                 VerticalOptions="Start">
-        <Label Text="Ingresar el numero de telefono"
-               FontSize="20"
-               FontAttributes="Bold"
-               HorizontalOptions="Center"/>
-        <StackLayout Margin="20">
-            <Entry Placeholder="Ingrese solo en formato numero"
-                   FontSize="18"
-                   HorizontalTextAlignment="Center"/>
-        </StackLayout>
-        
-        <StackLayout>
-            <HorizontalStackLayout HorizontalOptions="StartAndExpand">
-                <StackLayout Padding="15">
-                    <Label Text="Seleccione el operador:"
-                           FontSize="18"/>
-                    <Frame Margin="0,15,0,0"
-                           HeightRequest="70">
-                        <Picker>
-                        
-                        </Picker>
-                    </Frame>
-                </StackLayout>
-                
-                <StackLayout Padding="15">
-                    <Label Text="Selecciones el operador:"
-                           FontSize="18"/>
-                    <Frame Margin="0,15,0,0"
-                           HeightRequest="70">
-                        <Picker>
-                        
-                        </Picker>
-                    </Frame>
-                </StackLayout>
-            </HorizontalStackLayout>
-        </StackLayout>
+    <ContentPage.Resources>
+        <Color x:Key="Primary">#ab3527</Color>
+        <Color x:Key="Secondary">#775752</Color>
+        <Color x:Key="Tertiary">#705c2e</Color>
+        <Color x:Key="ButtonColor"> #A1DB52</Color>
+    </ContentPage.Resources>
+    
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
 
-    </StackLayout>
+            <Label
+                Text="Ingrese el numero de telefono!"
+                Style="{StaticResource Headline}"
+                TextColor="{StaticResource Primary}"
+                SemanticProperties.HeadingLevel="Level1" />
+            <Entry Placeholder="Ingrese solo en formato numero"
+                   FontSize="18"/>
+            <HorizontalStackLayout HorizontalOptions="Start"
+                                   VerticalOptions="Start"
+                                   Margin="10">
+                
+                <VerticalStackLayout Margin="5">
+                    <Label Text="Seleccione el operador: "
+                           FontSize="15"
+                           TextColor="{StaticResource Secondary}"/>
+                    <Frame BorderColor="DimGray"
+                           CornerRadius="5"
+                           HasShadow="True"
+                           HeightRequest="35"
+                           Margin="20">
+                        <Picker ItemsSource="{Binding Operadoras}"
+                                HeightRequest="35"/>
+                    </Frame>
+                </VerticalStackLayout>
+                
+                <VerticalStackLayout Margin="5">
+                    <Label Text="Seleccione el valor"
+                           FontSize="15"
+                           LineBreakMode="WordWrap"
+                           HorizontalOptions="FillAndExpand"
+                           TextColor="{StaticResource Secondary}"/>
+                    <Label Text="de la recarga:"
+                           LineBreakMode="WordWrap"
+                           HorizontalOptions="FillAndExpand"
+                           FontSize="15"
+                           TextColor="{StaticResource Secondary}"/>
+                    
+                    <StackLayout Margin="20"
+                                 Padding="10">
+                        <HorizontalStackLayout>
+                            <RadioButton IsChecked="{Binding RecargaModel.Option1, 
+                                         Mode=TwoWay}"/>
+                            <Label Text="3"
+                                   FontSize="15"/>
+                        </HorizontalStackLayout>
+                    
+                        <HorizontalStackLayout>
+                            <RadioButton IsChecked="{Binding RecargaModel.Option2,
+                                         Mode=TwoWay}"/>
+                            <Label Text="5"
+                                   FontSize="15"/>
+                        </HorizontalStackLayout>
+                    
+                        <HorizontalStackLayout>
+                            <RadioButton IsChecked="{Binding RecargaModel.Option3,
+                                         Mode=TwoWay}"/>
+                            <Label Text="10"
+                                   FontSize="15"/>
+                        </HorizontalStackLayout>
+                    </StackLayout>
+                    
+                </VerticalStackLayout>
+            </HorizontalStackLayout>
+            
+            <HorizontalStackLayout>
+                <Label Text="Ha seleccionado una recarga de: "
+                       FontSize="15"
+                       LineBreakMode="WordWrap"
+                       HorizontalOptions="FillAndExpand"
+                       TextColor="{StaticResource Tertiary}"/>
+                <Label Text="{Binding RecargaModel.Recarga, StringFormat='{0} $'}"
+                       FontSize="15"
+                       LineBreakMode="WordWrap"
+                       HorizontalOptions="FillAndExpand"/>
+            </HorizontalStackLayout>
+            
+            <Button
+                Text="Recargar"
+                Command="{Binding Recarga_Click}"
+                HorizontalOptions="Fill"
+                BackgroundColor="{StaticResource ButtonColor}"
+                TextColor="Black"/>
+        </VerticalStackLayout>
+    </ScrollView>
 
 </ContentPage>

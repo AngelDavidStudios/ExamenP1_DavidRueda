@@ -1,5 +1,8 @@
+using PropertyChanged;
+
 namespace ExamenP1_DavidRueda.MVVM.Models;
 
+[AddINotifyPropertyChangedInterface]
 public class RecargaValues
 {
     public string Recarga { get; set; }

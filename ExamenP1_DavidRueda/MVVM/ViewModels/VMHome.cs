@@ -1,9 +1,11 @@
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using ExamenP1_DavidRueda.MVVM.Models;
+using PropertyChanged;
 
 namespace ExamenP1_DavidRueda.MVVM.ViewModels;
 
+[AddINotifyPropertyChangedInterface]
 public class VMHome
 {
     public ObservableCollection<string> Operadoras { get; set; }
@@ -16,8 +18,9 @@ public class VMHome
         {
             "Claro",
             "Movistar",
-            "Entel",
-            "Bitel"
+            "Sprint",
+            "AT&T",
+            "Verizon",
         };
         RecargaModel = new RecargaValues();
         Recarga_Click = new Command(async () => await AlertConfirmation());
@@ -25,14 +28,14 @@ public class VMHome
 
     public async Task AlertConfirmation()
     {
-        bool answer = await Shell.Current.DisplayAlert("Confirmación", $"¿Estás seguro de que quieres recargar {RecargaModel.Recarga}?", "Sí", "No");
+        bool answer = await Application.Current.MainPage.DisplayAlert("Confirmación", $"¿Estás seguro de que quieres recargar {RecargaModel.Recarga}?", "Sí", "No");
         if (answer)
         {
-            await Shell.Current.DisplayAlert("Confirmado", "Tu recarga ha sido confirmada.", "OK");
+            await Application.Current.MainPage.DisplayAlert("Confirmado", "Tu recarga ha sido confirmada.", "OK");
         }
         else
         {
-            await Shell.Current.DisplayAlert("Cancelado", "Tu recarga ha sido cancelada.", "OK");
+            await Application.Current.MainPage.DisplayAlert("Cancelado", "Tu recarga ha sido cancelada.", "OK");
         }
     }
 }
