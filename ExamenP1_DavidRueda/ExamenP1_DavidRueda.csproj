@@ -63,9 +63,4 @@
         <PackageReference Include="PropertyChanged.Fody" Version="4.1.0" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="MVVM\ViewModels\" />
-      <Folder Include="MVVM\VIews\" />
-    </ItemGroup>
-
 </Project>
