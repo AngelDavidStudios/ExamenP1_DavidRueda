@@ -2,8 +2,48 @@
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ExamenP1_DavidRueda.MVVM.VIews.HomeView">
-    <ContentPage.Content>
+             x:Class="ExamenP1_DavidRueda.MVVM.VIews.HomeView"
+             Title="David Rueda - Recarga">
+    
+    <StackLayout Margin="15"
+                 HorizontalOptions="Start"
+                 VerticalOptions="Start">
+        <Label Text="Ingresar el numero de telefono"
+               FontSize="20"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"/>
+        <StackLayout Margin="20">
+            <Entry Placeholder="Ingrese solo en formato numero"
+                   FontSize="18"
+                   HorizontalTextAlignment="Center"/>
+        </StackLayout>
         
-    </ContentPage.Content>
+        <StackLayout>
+            <HorizontalStackLayout HorizontalOptions="StartAndExpand">
+                <StackLayout Padding="15">
+                    <Label Text="Seleccione el operador:"
+                           FontSize="18"/>
+                    <Frame Margin="0,15,0,0"
+                           HeightRequest="70">
+                        <Picker>
+                        
+                        </Picker>
+                    </Frame>
+                </StackLayout>
+                
+                <StackLayout Padding="15">
+                    <Label Text="Selecciones el operador:"
+                           FontSize="18"/>
+                    <Frame Margin="0,15,0,0"
+                           HeightRequest="70">
+                        <Picker>
+                        
+                        </Picker>
+                    </Frame>
+                </StackLayout>
+            </HorizontalStackLayout>
+        </StackLayout>
+
+    </StackLayout>
+
 </ContentPage>

@@ -1,4 +1,5 @@
-﻿namespace ExamenP1_DavidRueda;
+﻿using ExamenP1_DavidRueda.MVVM.VIews;
+namespace ExamenP1_DavidRueda;
 
 public partial class App : Application
 {
@@ -6,6 +7,6 @@ public partial class App : Application
     {
         InitializeComponent();
 
-        MainPage = new AppShell();
+        MainPage = new HomeView();
     }
 }
