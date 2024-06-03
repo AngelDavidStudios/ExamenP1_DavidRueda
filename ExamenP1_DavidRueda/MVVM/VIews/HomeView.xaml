@@ -23,7 +23,8 @@
                 TextColor="{StaticResource Primary}"
                 SemanticProperties.HeadingLevel="Level1" />
             <Entry Placeholder="Ingrese solo en formato numero"
-                   FontSize="18"/>
+                   FontSize="18"
+                   Text="{Binding NumeroCelular}"/>
             <HorizontalStackLayout HorizontalOptions="Start"
                                    VerticalOptions="Start"
                                    Margin="10">
